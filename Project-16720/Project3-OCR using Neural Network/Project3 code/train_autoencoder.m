@@ -1,0 +1,19 @@
+% TODO: load training dataset
+load('../data/nist36_train.mat');
+% TODO: reshape and adjust the dimensions to be in the order of [height,width,1,sample_index]
+train = reshape(train_data',[32,32,1,size(train_data,1)]);
+    %resize each row to 32x32
+layers = define_autoencoder();
+
+options = trainingOptions('sgdm',...
+                          'InitialLearnRate',1e-3,...
+                          'MaxEpochs',3,...
+                          'MiniBatchSize',20,...
+                          'Shuffle','every-epoch',...
+                          'Plot','training-progress',...
+                          'VerboseFrequency',20);
+
+% TODO: run trainNetwork()
+net = trainNetwork(train,train,layers,options);
+
+                      

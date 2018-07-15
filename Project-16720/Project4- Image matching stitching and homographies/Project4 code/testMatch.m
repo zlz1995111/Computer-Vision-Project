@@ -1,0 +1,18 @@
+% im3 = imread('../data/cv_cover.jpg');
+% im4 = rgb2gray(imread('../data/cv_desk.png'));
+% im3 = im2double(im3);
+% im4 = im2double(im4);
+% [locs3,desc3] = briefLite(im3);
+% [locs4,desc4] = briefLite(im4);
+% ratio = 0.95;
+% [matches2] = briefMatch(desc3, desc4, ratio);
+% plotMatches(im3, im4, matches2, locs3, locs4);
+im1 = rgb2gray(imread('../data/model_chickenbroth.jpg'));
+im2 = rgb2gray(imread('../data/chickenbroth_01.jpg'));
+im1 = im2double(im1);
+im2 = im2double(im2);
+[locs1, desc1] = briefLite(im1);
+[locs2, desc2] = briefLite(im2);
+ratio = 0.9;
+[matches] = briefMatch(desc1, desc2, ratio);
+plotMatches(im1, im2, matches, locs1, locs2);
